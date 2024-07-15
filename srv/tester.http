@@ -1,0 +1,101 @@
+###Get Service Document
+ http://localhost:4004/odata/v4/CatalogService
+
+###Get Service Metadata Document
+ http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get All Employee Data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###Get Single Employee Data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197C7FB
+
+###Get Total count of employees
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+###Get the first 2 Employees
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2
+
+###Get Skip 2 employees and show next 5 employees
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$skip=2&$top=5
+
+###Get using filter operator EQ
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=bankName eq 'My Bank of San Francisco'
+
+###Get using filter operator contains
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=contains(nameFirst,'Su')
+
+###POST - Create an Employee
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+      "nameFirst": "Chris",
+      "nameMiddle": "M",
+      "nameLast": "Ronaldo",
+      "nameInitials": null,
+      "sex": "F",
+      "language": "E",
+      "phoneNumber": null,
+      "email": "chris.ronaldo@ust.com",
+      "loginName": "SUMMERS",
+      "Currency_code": "USD",
+      "salaryAmount": 10000000,
+      "accountNumber": "9988776655",
+      "bankId": null,
+      "bankName": "My Bank of San Francisco"
+}    
+
+### PATCH - Update Employee
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/6857e1b3-cf07-434a-a662-68ac55d6b6ca
+Content-Type: application/json
+
+{
+    "salaryAmount": 10000000,    
+    "Currency_code": "USD"
+}
+
+###Get all Products
+http://localhost:4004/odata/v4/CatalogService/Products
+
+###Get Single Product
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26ED8052
+
+###Get Item Detail of Single product
+http://localhost:4004/odata/v4/CatalogService/Products('74867AD200E41EDBA5D8B06B26ED8052')/To_Items
+
+###Get Details of Products and Items
+http://localhost:4004/odata/v4/CatalogService/Products?$expand=To_Items 
+
+###Get All POs
+http://localhost:4004/odata/v4/CatalogService/POs
+
+###Get All POs
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052
+
+###Get Single POs
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052
+
+###Get Single PO and Items
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052?$expand=Items
+
+###Get Single POs and Boost it
+POST http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052/CatalogService.boost
+Content-Type: application/json
+
+{}
+
+###Get the largest Order
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052/CatalogService.largestOrder()
+
+###Get Service Document - V2
+ http://localhost:4004/v2/odata/v4/CatalogService
+
+###Get Service Metadata Document - V2
+ http://localhost:4004/v2/odata/v4/CatalogService/$metadata
+
+###Get All Employee Data - V2
+http://localhost:4004/v2/odata/v4/CatalogService/EmployeeSet
+
+###Get Single Employee Data - V2
+http://localhost:4004/v2/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197C7FB
